@@ -1,26 +1,221 @@
 @import "tailwindcss";
 
+@theme {
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #fdfcfe;
+    --foreground: #0a0118;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --border: rgba(139, 92, 246, 0.1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+    --background: #0a0118;
+    --foreground: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border: rgba(139, 92, 246, 0.2);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #22d3ee, #8b5cf6, #ec4899);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #06b6d4, #7c3aed, #db2777);
+}
+
+@keyframes meteor {
+    0% {
+        transform: rotate(215deg) translateX(0);
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(215deg) translateX(-500px);
+        opacity: 0;
+    }
+}
+
+.animate-meteor {
+    animation: meteor 5s linear infinite;
+}
+
+@keyframes gradient {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+.backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+}
+
+/* New Source Styles */
+@keyframes float-slow {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(1deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(-1deg);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #60a5fa, #34d399, #60a5fa);
+    background-size: 200% auto;
+    animation: gradient-shift 4s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-border {
+    position: relative;
+    background: linear-gradient(45deg, #60a5fa, #34d399);
+    padding: 2px;
+    border-radius: 0.75rem;
+}
+
+.code-window {
+    position: relative;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.window-header {
+    background: #0b466359;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.window-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.window-dot:hover {
+    transform: scale(1.2);
+}
+
+.animate-float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.typing-effect::after {
+    content: "|";
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+    color: #60a5fa;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Enhanced Prism.js styling */
+pre[class*="language-"] {
+    background: #091121 !important;
+    padding: 1.5rem !important;
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+}
+
+.token.comment {
+    color: #8b9cb3 !important;
+    font-style: italic;
+}
+
+.token.string {
+    color: #a5d6ff !important;
+}
+
+.token.keyword {
+    color: #ff79c6 !important;
+}
+
+.token.function {
+    color: #66e7ff !important;
 }
