@@ -87,10 +87,13 @@ export default function Chatbot() {
             console.error(error);
             const errorMessage = error instanceof Error ? error.message : 'Unknown error';
 
-            if (errorMessage === 'AI service not configured') {
+            // Check if it's a fetch failure (network error)
+            const isNetworkError = errorMessage.includes('Failed to fetch') || errorMessage.includes('Network request failed');
+
+            if (errorMessage === 'AI service not configured' || isNetworkError) {
                 const fallbackMessage: Message = {
                     role: 'assistant',
-                    content: "I'm currently in offline mode because the AI service isn't configured yet. Please check out the FAQ page or contact the developer directly!",
+                    content: "⚠️ **System Notice**: I'm currently unable to connect to the brain server (It might be offline or sleeping). Please try again later, or contact Rakibul directly via email!",
                     timestamp: new Date(),
                 };
                 setMessages(prev => [...prev, fallbackMessage]);
