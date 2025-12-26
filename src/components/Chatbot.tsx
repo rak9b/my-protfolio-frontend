@@ -149,11 +149,11 @@ export default function Chatbot() {
                                     <Bot className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white flex items-center gap-2">
+                                    <h3 className="font-bold text-white flex items-center gap-2 text-sm sm:text-base">
                                         AI Assistant
                                         <span className="text-[10px] bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full border border-green-500/30">Online</span>
                                     </h3>
-                                    <p className="text-xs text-gray-400">Powered by GPT-4</p>
+                                    <p className="text-[10px] sm:text-xs text-gray-400">Powered by Gemini & GPT-4</p>
                                 </div>
                             </div>
                             <div className="flex gap-1">
@@ -182,8 +182,8 @@ export default function Chatbot() {
                                     )}
                                     <div
                                         className={`max-w-[85%] p-3.5 rounded-2xl shadow-md ${msg.role === 'user'
-                                            ? 'bg-gradient-to-br from-purple-600 to-pink-600 text-white rounded-tr-none'
-                                            : 'bg-white/10 text-gray-100 border border-white/10 rounded-tl-none backdrop-blur-sm'
+                                            ? 'bg-gradient-to-br from-[#8E2DE2] to-[#4A00E0] text-white rounded-tr-none'
+                                            : 'bg-[#1E1E2E]/80 text-gray-100 border border-white/10 rounded-tl-none backdrop-blur-sm'
                                             }`}
                                     >
                                         <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
