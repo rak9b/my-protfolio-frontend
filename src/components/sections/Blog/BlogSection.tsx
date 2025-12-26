@@ -85,7 +85,7 @@ export default function BlogSection() {
                                 <div className="relative h-48 overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent z-10 opacity-60" />
                                     <Image
-                                        src={blog.coverImage || '/placeholder-blog.jpg'}
+                                        src={blog.coverImage || 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop'}
                                         alt={blog.title}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-110"
