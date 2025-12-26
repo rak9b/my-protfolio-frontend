@@ -76,20 +76,18 @@ export default function IconCloud({
 
     return (
         <Cloud {...cloudProps}>
-            <>
-                {renderedIcons}
-                {imageArray.map((image, index) => (
-                    <a key={index} href="#" onClick={(e) => e.preventDefault()}>
-                        <Image
-                            height={42}
-                            width={42}
-                            alt="Icon"
-                            src={image}
-                            unoptimized
-                        />
-                    </a>
-                ))}
-            </>
-        </Cloud>
+            {renderedIcons}
+            {imageArray.map((image, index) => (
+                <a key={`img-${index}`} href="#" onClick={(e) => e.preventDefault()}>
+                    <Image
+                        height={42}
+                        width={42}
+                        alt="Icon"
+                        src={image}
+                        unoptimized
+                    />
+                </a>
+            ))}
+        </Cloud >
     );
 }
