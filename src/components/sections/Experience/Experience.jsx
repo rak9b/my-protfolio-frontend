@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Code2, Shield, Users, Award, BookOpen, Target } from 'lucide-react';
+import { PORTFOLIO_DATA } from "@/constants/data";
 
 const RocketSVG = ({ className, showTrail = false }) => (
   <div className={`relative ${className}`}>
@@ -202,71 +202,7 @@ const InteractiveExperienceSection = () => {
   const lastScrollY = useRef(0);
   const rocketRef = useRef(null);
 
-  const experiences = [
-    {
-      icon: Code2,
-      title: "Full Stack Developer Intern",
-      company: "Code Craft",
-      period: "Dec 2024 - Jan 2025",
-      description: "Improved web app performance and security by integrating best coding practices, boosting project delivery efficiency by 30%. Collaborated with developers to debug and enhance 15+ real-world application features.",
-      type: "work"
-    },
-    {
-      icon: Code2,
-      title: "Frontend Developer Intern",
-      company: "StartHere",
-      period: "Dec 2024 - Feb 2025",
-      description: "Developed responsive front-end components increasing user engagement by 20%. Implemented secure API endpoints and authentication workflows following ISO standards.",
-      type: "work"
-    },
-    {
-      icon: Users,
-      title: "Campus Cybersecurity Lead",
-      company: "Port City International University",
-      period: "2023 - Present",
-      description: "Led campus-wide threat detection initiatives, securing university networks and enhancing cybersecurity awareness. Conducted workshops on ethical hacking educating 300+ students.",
-      type: "leadership"
-    },
-    {
-      icon: Target,
-      title: "Mentor & Workshop Facilitator",
-      company: "University Community",
-      period: "2023 - Present",
-      description: "Mentored peers and juniors in cybersecurity and full-stack development, cultivating a collaborative environment focused on skill growth and teamwork.",
-      type: "leadership"
-    }
-  ];
-
-  const achievements = [
-    {
-      icon: Award,
-      title: (
-        <>
-          WebXtreme Hackathon 2025 - <span className="font-extrabold text-yellow-400 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Top 20</span>
-        </>
-      ),
-      description: (
-        <>
-          Ranked in the <span className="font-bold text-yellow-400">Top 20</span> at NSU Tech Fest among <span className="font-bold text-blue-400">320+ teams</span> from <span className="font-bold text-purple-400">168 universities</span> across Bangladesh, for developing a secure Crime Reporting & Community Verification Platform focused on safety, transparency, and social impact.
-        </>
-      )
-    },
-    {
-      icon: Shield,
-      title: "CTF Competitions",
-      description: "Active participant in national and online CTFs (Kingnight, CyberAid, BDSec CTF), refining problem-solving and penetration testing skills."
-    },
-    {
-      icon: BookOpen,
-      title: "Security Certifications",
-      description: "Completed multiple cybersecurity certifications including TryHackMe Offensive Pentest, NDE by EC-Council, and pursuing OSCP."
-    },
-    {
-      icon: Code2,
-      title: "Open Source Contributions",
-      description: "Maintained active GitHub profile with 5+ major projects showcasing full-stack development and security implementations."
-    }
-  ];
+  const { experiences, achievements } = PORTFOLIO_DATA;
 
   useEffect(() => {
     const handleScroll = () => {

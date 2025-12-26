@@ -2,74 +2,10 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-
-interface Project {
-    title: string;
-    description: string;
-    link: string;
-    color: string;
-    githubLink: string;
-    liveLink: string;
-}
-
-const projects: Project[] = [
-    {
-        title: " Orfarm Grocery 🌱 ",
-        description:
-            "Orfarm Grocery is a modern online grocery shopping center that offers a wide range of organic and fresh produce. Built with the MERN stack (MongoDB, Express.js, React, Node.js), this platform provides a seamless shopping experience with features like product browsing, cart management, and secure checkout.",
-        link: "https://i.ibb.co/XgnwgD7/Orfarm-Grocery.png",
-        color: "#6e9972",
-        githubLink: " https://github.com/rak9b/-Orfarm-Grocery-Online-Grocery-Shopping-Center",
-        liveLink: "https://orfarm-grocery.vercel.app/",
-    },
-    {
-        title: "Akademi - Scholarship Management System   ",
-        description:
-            "Akademi is a web-based Scholarship Management System designed to streamline the application, management, and approval processes for scholarships. Built using the MERN stack (MongoDB, Express.js, React, Node.js), Firebase for authentication, and Vercel for hosting the backend, this platform ensures efficient and secure scholarship management.",
-        link: "https://i.postimg.cc/GhcMfHq7/Screenshot-2025-07-14-215711.png",
-        color: "#89ff93",
-        githubLink: " https://github.com/rak9b/Akademi---Scholarship-Management-System ",
-        liveLink: "https://akademi-uni.web.app/",
-    },
-    {
-        title: "📘 E-Tutor Booking  ",
-        description:
-            "E-Tutor Booking, a modern, responsive, and feature-rich Online Tutor Booking Platform . This web application is designed to connect students with qualified tutors across various languages and subjects. It offers a seamless experience from discovering tutors to scheduling and reviewing sessions.",
-        link: "https://i.postimg.cc/W3rqgQR5/Screenshot-2025-06-29-150504.png",
-        color: "#8f89ff",
-        githubLink: "https://github.com/rak9b/-E-Tutor-Booking",
-        liveLink: "https://tutor-booking-43ee8.web.app/",
-    },
-    {
-        title: "🍲 Food Khazana ",
-        description:
-            "A user-friendly Recipe Book App where users can manage their recipes, discover recipes from others, add recipes to a wishlist, and like recipes. The app features a dynamic top recipes section based on likes, providing a simple and engaging platform for food enthusiasts.",
-        link: "https://i.postimg.cc/MHQcq1Tv/Screenshot-2025-06-29-145857.png",
-        color: "#5196fd",
-        githubLink: "https://github.com/rak9b/-Food-Khazana---Recipe-Book-App",
-        liveLink: "https://food-khazana.netlify.app/",
-    },
-    {
-        title: "LeafyWorld - Gardening Community Platform",
-        description:
-            "LeafyWorld is a vibrant online community for gardening enthusiasts to connect, share knowledge, and grow together. Our platform brings together plant lovers from beginners to experts, offering a space to exchange tips, discover local gardeners, and participate in gardening events.💻✨",
-        link: "https://i.postimg.cc/kMfsfKnq/Screenshot-2025-07-01-160141.png",
-        color: "#ed649e",
-        githubLink: "https://github.com/rak9b/-LeafyWorld---Gardening-Community-Platform/tree/main",
-        liveLink: "https://leafyworld-b841c.web.app",
-    },
-    {
-        title: "🔐 TheCrate",
-        description:
-            "A modern subscription-based web application built with React, Firebase Authentication, and Vite. It offers secure login, protected routes, user profile management, dynamic blogs, testimonials, and more.",
-        link: "https://i.postimg.cc/sXhdnRwD/Screenshot-2025-06-29-151308.png",
-        color: "#5196fd",
-        githubLink: "https://github.com/rak9b/-subscription-service-website-",
-        liveLink: "https://subscription-box-website.vercel.app/",
-    },
-];
+import { PORTFOLIO_DATA } from "@/constants/data";
 
 export default function Projects() {
+    const { projects } = PORTFOLIO_DATA;
     const container = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: container,
