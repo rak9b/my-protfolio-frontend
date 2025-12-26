@@ -158,6 +158,22 @@ export default function Chatbot() {
                             </div>
                             <div className="flex gap-1">
                                 <button
+                                    onClick={() => {
+                                        setMessages([
+                                            {
+                                                role: 'assistant',
+                                                content: "👋 Welcome back! I'm refreshed and ready to help. Ask me about **Red Teaming**, **Full-Stack development**, or **RoksJS**!",
+                                                timestamp: new Date(),
+                                            },
+                                        ]);
+                                        toast.success('Chat cleared');
+                                    }}
+                                    className="p-2 hover:bg-white/10 rounded-lg transition text-gray-400 hover:text-white"
+                                    title="Clear Chat"
+                                >
+                                    <Sparkles className="w-5 h-5" />
+                                </button>
+                                <button
                                     onClick={() => setIsOpen(false)}
                                     className="p-2 hover:bg-white/10 rounded-lg transition text-gray-400 hover:text-white"
                                 >
