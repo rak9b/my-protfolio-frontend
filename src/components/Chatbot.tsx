@@ -84,7 +84,7 @@ export default function Chatbot() {
 
             setMessages(prev => [...prev, assistantMessage]);
         } catch (error) {
-            console.error(error);
+            // console.error(error); // Suppress console error for cleaner UX when offline
             const errorMessage = error instanceof Error ? error.message : 'Unknown error';
 
             // Check if it's a fetch failure (network error)

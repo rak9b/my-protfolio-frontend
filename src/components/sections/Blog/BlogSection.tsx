@@ -30,7 +30,7 @@ export default function BlogSection() {
                 setLoading(false);
             })
             .catch((err) => {
-                console.error("Failed to fetch blogs:", err);
+                // console.warn("Backend offline, skipping blogs.");
                 setLoading(false);
             });
     }, []);
